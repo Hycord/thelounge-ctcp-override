@@ -12,7 +12,7 @@ const ctcpResponses = {
 			.filter((key) => key !== "CLIENTINFO" && typeof ctcpResponses[key] === "function")
 			.join(" "),
 	PING: ({message}: {message: string}) => message.substring(5),
-	SOURCE: () => pkg.repository.url,
+	SOURCE: () => process.env.THELOUNGE_SOURCE ?? `Stop Tracking Please!`,
 	VERSION: () => process.env.THELOUNGE_VERSION ?? `Stop Tracking Please!`,
 };
 

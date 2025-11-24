@@ -13,6 +13,7 @@ LABEL org.opencontainers.image.licenses="MIT"
 EXPOSE 9000
 ENV THELOUNGE_HOME="/var/opt/thelounge"
 ENV THELOUNGE_VERSION="Please Stop Tracking!"
+ENV THELOUNGE_SOURCE="Please Stop Tracking!"
 
 ENV NODE_ENV=production
 WORKDIR /app
