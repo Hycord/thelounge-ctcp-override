@@ -1,0 +1,58 @@
+{
+	"password": "$2a$11$Y/EvfuyqY/loQgtHnIFvse7PJ4LI3VI/OAmOwGcfpyL3bwPXAqavu",
+	"log": true,
+	"sessions": {
+		"cd6c91641b74ac288eec1c331dd3ff4ed7bbc34e3defd35c87b4cab1d750a2515160c0e4d4e6d14a92c87bce67d8153b2d28a886750eace4a966101aa765b08b": {
+			"lastUse": 1763969565097,
+			"ip": "192.168.0.234",
+			"agent": "Safari 26 on Mac OS 10.15.7"
+		},
+		"eb09b2282a279776cdab8d253e273352034e78da0134a35a8498b13d84ec4d6de6228b8bd9b32f0673db8b30a8c3ea4f1808628ba22c6c02d5beb4ef82b7ddbf": {
+			"lastUse": 1763971342777,
+			"ip": "188.240.145.101",
+			"agent": "Safari 26 on Mac OS 10.15.7"
+		}
+	},
+	"clientSettings": {
+		"searchEnabled": true
+	},
+	"browser": {
+		"ip": "188.240.145.101",
+		"isSecure": false,
+		"language": "en-US,en;q=0.9"
+	},
+	"networks": [
+		{
+			"uuid": "dcaa0b22-c2ad-4974-ab61-2895114230d8",
+			"awayMessage": "",
+			"nick": "thelounge206",
+			"name": "Libera.Chat",
+			"host": "irc.libera.chat",
+			"port": 6697,
+			"tls": true,
+			"userDisconnected": false,
+			"rejectUnauthorized": true,
+			"password": "",
+			"username": "thelounge",
+			"realname": "thelounge20",
+			"leaveMessage": "",
+			"sasl": "",
+			"saslAccount": "",
+			"saslPassword": "",
+			"commands": [],
+			"ignoreList": [],
+			"proxyHost": "",
+			"proxyPort": 1080,
+			"proxyUsername": "",
+			"proxyEnabled": false,
+			"proxyPassword": "",
+			"channels": [
+				{
+					"name": "#thelounge",
+					"muted": false,
+					"key": ""
+				}
+			]
+		}
+	]
+}

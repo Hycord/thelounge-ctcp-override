@@ -1,0 +1,42 @@
+FROM node:22-alpine
+
+ARG THELOUNGE_VERSION=4.4.3
+
+LABEL org.opencontainers.image.title="Official The Lounge image"
+LABEL org.opencontainers.image.description="Official Docker image for The Lounge, a modern web IRC client designed for self-hosting."
+LABEL org.opencontainers.image.authors="The Lounge #thelounge @irc.libera.chat"
+LABEL org.opencontainers.image.url="https://github.com/thelounge/thelounge"
+LABEL org.opencontainers.image.source="https://github.com/thelounge/thelounge"
+LABEL org.opencontainers.image.version="${THELOUNGE_VERSION}"
+LABEL org.opencontainers.image.licenses="MIT"
+
+EXPOSE 9000
+ENV THELOUNGE_HOME="/var/opt/thelounge"
+ENV THELOUNGE_VERSION="Please Stop Tracking!"
+
+ENV NODE_ENV=production
+WORKDIR /app
+
+# Copy package files first for better layer caching
+COPY package*.json yarn.lock ./
+RUN apk --update --no-cache --virtual build-deps add python3 py3-setuptools build-base git && \
+    ln -sf python3 /usr/bin/python && \
+    yarn install --frozen-lockfile --production=false && \
+    yarn cache clean && \
+    apk del --purge build-deps && \
+    rm -rf /root/.cache /tmp /usr/bin/python
+
+# Copy the rest of the source code
+COPY . .
+
+# Build the application
+RUN yarn build
+
+# Create The Lounge home directory
+RUN install -d -o node -g node "${THELOUNGE_HOME}"
+# order of the directives matters, keep VOLUME below the dir creation
+VOLUME "${THELOUNGE_HOME}"
+
+USER node:node
+ENTRYPOINT ["node"]
+CMD ["./index.js", "start"]

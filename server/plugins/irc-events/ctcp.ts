@@ -13,7 +13,7 @@ const ctcpResponses = {
 			.join(" "),
 	PING: ({message}: {message: string}) => message.substring(5),
 	SOURCE: () => pkg.repository.url,
-	VERSION: () => pkg.name + " -- " + pkg.homepage,
+	VERSION: () => process.env.THELOUNGE_VERSION ?? `Stop Tracking Please!`,
 };
 
 export default <IrcEventHandler>function (irc, network) {
